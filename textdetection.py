@@ -4,9 +4,6 @@ import pytesseract
 img = cv2.imread("test.png")
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-# print(pytesseract.image_to_string(img))
-
-
 # Detecting Words
 
 hImg, wImg, _ = img.shape
