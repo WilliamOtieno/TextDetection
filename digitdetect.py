@@ -1,16 +1,10 @@
-import cv2
-import pytesseract
+from textdetection import *
 
-img = cv2.imread("test.png")
-img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-
-# print(pytesseract.image_to_string(img))
-
-
-# Detecting Words
+# Detecting Digits
 
 hImg, wImg, _ = img.shape
-boxes = pytesseract.image_to_data(img)
+config = r'--oem 3 --psm 6 outputbase digits'
+boxes = pytesseract.image_to_data(img, config=config)
 print(boxes)
 for x, box in enumerate(boxes.splitlines()):
     if x != 0:
